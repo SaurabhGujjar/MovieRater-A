@@ -25,7 +25,7 @@ SECRET_KEY = 'fo!kqw00l$0x0-*5i_*0@pp(zt2sa1mhine$podf$_jndeo6a-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['movieraterapi01.herokuapp.com']
+ALLOWED_HOSTS = ['movieraterapi01.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -89,11 +89,11 @@ DATABASES = {
     }
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': {
-        'rest_framework.permission.IsAuthenticated',
-    }
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': {
+#         'rest_framework.permission.IsAuthenticated',
+#     }
+# }
 
 
 # Password validation
