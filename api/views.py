@@ -12,9 +12,9 @@ from  rest_framework.permissions import IsAuthenticated
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
-    
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
+
 
 
 
@@ -23,15 +23,13 @@ class MovieViewSet(viewsets.ModelViewSet):
     serializer_class = MovieSerializer
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
-    
+
     @action(detail=True, methods=['POST'])
     def rate_movie(self, request, pk=None):
         if 'stars' in request.data:
             movie = Movie.objects.get(id=pk)
             stars = request.data['stars']
             user = request.user
-            # print('UU', user.username)
-            # print('MM', movie.title)
             try:
                 rating = Rating.objects.get(user=user.id, movie=movie.id)
                 rating.stars = stars
@@ -44,7 +42,7 @@ class MovieViewSet(viewsets.ModelViewSet):
                 serializer = RatingSerializer(rating, many=False)
                 response = {'message': "Rating created", 'result': serializer.data}
                 return Response(response, status=status.HTTP_200_OK)
-            
+
         else:
             response = {'message': "Pass stars"}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
@@ -57,7 +55,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 
 class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
-    serializer_class = RatingSerializer 
+    serializer_class = RatingSerializer
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 
@@ -65,7 +63,7 @@ class RatingViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         response = {'message': "You cant update ratings like that"}
         return Response(response, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def create(self, request, *args, **kwargs):
         response = {'message': "You cant create ratings like that"}
         return Response(response, status=status.HTTP_400_BAD_REQUEST)

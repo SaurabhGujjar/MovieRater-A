@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',  
+    'api',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -91,7 +91,7 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': {
-        'rest_framework.permission.IsAuthenticated', 
+        'rest_framework.permission.IsAuthenticated',
     }
 }
 
@@ -141,8 +141,7 @@ DATABASES['default'].update(db_from_env)
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    		os.path.join(BASE_DIR, "static"),
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
 			]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
