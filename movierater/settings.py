@@ -56,7 +56,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
 'http://localhost:3001',
-'https://movie-rater.surge.sh'
+'https://movie-rater.surge.sh',
+'https://movierater.surge.sh/'
 ]
 
 ROOT_URLCONF = 'movierater.urls'
