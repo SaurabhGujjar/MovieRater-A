@@ -55,7 +55,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-'http://localhost:3001'
+'http://localhost:3001',
+'https://saurabhgujjar.github.io'
 ]
 
 ROOT_URLCONF = 'movierater.urls'
