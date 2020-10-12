@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'movierater.wsgi.application'
+# WSGI_APPLICATION = 'movierater.wsgi.application'
 
 
 # Database
